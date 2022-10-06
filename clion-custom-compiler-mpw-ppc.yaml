@@ -1,0 +1,12 @@
+compilers:
+  - description: "MPW MrC"
+    match-sources: ".*\\.c"
+    match-language: "C"
+    match-compiler-exe: "(.*/)?mpw MrC"
+    code-insight-target-name: mpw
+    include-dirs:
+      - ${user-home}/mpw/Interfaces/CIncludes
+    defines-text: "
+#define __MRC__ 0x0700
+#define OLDROUTINENAMES 1
+"
