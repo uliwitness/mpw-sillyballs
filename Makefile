@@ -16,19 +16,19 @@ LIBRARIES={Libraries}Stubs.o \
 
 TOOLBOXFLAGS=-d OLDROUTINENAMES=1 -typecheck relaxed
 
-OBJECTS=$(SOURCES:%.c=obj/%.o)
+OBJECTS=$(SOURCES:%.c=build/obj/%.o)
 
-all: prepass bin/$(EXECUTABLE)
+all: prepass build/$(EXECUTABLE)
 
 prepass:
-	mkdir -p obj bin
+	mkdir -p build build/obj
 
-bin/$(EXECUTABLE): $(OBJECTS)
+build/$(EXECUTABLE): $(OBJECTS)
 	~/Programming/mpw/build/bin/mpw link $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
 	Rez -rd $(RFILES) -o $@ -i $(RINCLUDES) -append
 
-obj/%.o : %.c
+build/obj/%.o : %.c
 	./sc.sh $(TOOLBOXFLAGS) $< -o $@
 
 clean:
-	rm -rf bin obj
+	rm -rf build/obj build

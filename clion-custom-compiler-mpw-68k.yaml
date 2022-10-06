@@ -7,6 +7,9 @@ compilers:
     include-dirs:
       - ${user-home}/mpw/Interfaces/CIncludes
     defines-text: "
-#define __MRC__ 0x0700
+#define __SC__ 0x0801
+#define MPW_C 1
 #define OLDROUTINENAMES 1
+#define TYPE_BOOL 1
+#define pascal
 "
