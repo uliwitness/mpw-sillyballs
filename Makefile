@@ -24,7 +24,7 @@ prepass:
 	mkdir -p obj bin
 
 bin/$(EXECUTABLE): $(OBJECTS)
-	./ld.sh $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
+	~/Programming/mpw/build/bin/mpw link $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
 	Rez -rd $(RFILES) -o $@ -i $(RINCLUDES) -append
 
 obj/%.o : %.c
