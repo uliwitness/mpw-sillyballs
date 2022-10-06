@@ -1,10 +1,11 @@
 SOURCES=SillyBalls.c
 RFILES=SillyBalls.r Size.r
 EXECUTABLE=SillyBalls
+CREATOR='SILB'
 
 RINCLUDES=~/mpw/Interfaces/RIncludes
 
-LDFLAGS=-w -c 'SILB' -t APPL \
+LDFLAGS=-w -c $(CREATOR) -t APPL \
 	-sn STDIO=Main -sn INTENV=Main -sn %A5Init=Main
 
 LIBRARIES={Libraries}Stubs.o \
