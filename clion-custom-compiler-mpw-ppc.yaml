@@ -1,8 +1,8 @@
 compilers:
-  - description: "MPW MrC"
+  - description: "MPW SC"
     match-sources: ".*\\.c"
     match-language: "C"
-    match-compiler-exe: "(.*/)?mpw MrC"
+    match-compiler-exe: "(.*/)?mpw SC"
     code-insight-target-name: mpw
     include-dirs:
       - ${user-home}/mpw/Interfaces/CIncludes
