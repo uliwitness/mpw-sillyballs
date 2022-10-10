@@ -3,11 +3,7 @@ RFILES=SillyBalls.r Size.r
 EXECUTABLE=SillyBalls
 CREATOR='SILB'
 
-BIN_DIR=~/Programming/mpw/build/bin
-LD=$(BIN_DIR)/mpw link
-REZ=$(BIN_DIR)/mpw Rez
-CC=$(BIN_DIR)/mpw SC
-RINCLUDES={RIncludes}/
+RINCLUDES=~/mpw/Interfaces/RIncludes
 
 LDFLAGS=-w -c $(CREATOR) -t APPL \
 	-sn STDIO=Main -sn INTENV=Main -sn %A5Init=Main
@@ -29,11 +25,11 @@ prepass:
 	mkdir -p build build/obj
 
 build/$(EXECUTABLE): $(OBJECTS)
-	$(LD) $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
-	$(REZ) -rd $(RFILES) -o $@ -i $(RINCLUDES) -append
+	~/Programming/mpw/build/bin/mpw link $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
+	~/Programming/mpw/build/bin/mpw  Rez -rd $(RFILES) -o $@ -i $(RINCLUDES) -append
 
 build/obj/%.o : %.c
-	$(CC) $(TOOLBOXFLAGS) $< -o $@
+	./sc.sh $(TOOLBOXFLAGS) $< -o $@
 
 clean:
 	rm -rf build/obj build

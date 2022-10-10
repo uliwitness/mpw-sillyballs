@@ -2,7 +2,7 @@ compilers:
   - description: "MPW SC"
     match-sources: ".*\\.c"
     match-language: "C"
-    match-compiler-exe: "(.*/)?mpw SC"
+    match-compiler-exe: "(.*/)?sc.sh"
     code-insight-target-name: m68k
     include-dirs:
       - ${user-home}/mpw/Interfaces/CIncludes
